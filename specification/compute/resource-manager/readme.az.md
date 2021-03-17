@@ -27,9 +27,29 @@ cli:
           alias: name
 directive: 
   - where: 
-      command: vm ssh-public-key
+      group: vm ssh-public-key
+    set: 
+      group: sshkey
+  - where:
+      group: ^vm virtual-machine-scale-set$
     set:
-      command: sshkey
+      group: vmss
+  - where:
+      group: vm virtual-machine-scale-set-vm-extension
+    set:
+      group: vmss vm-extension
+  - where:
+      group: vm virtual-machine-scale-set-v-ms
+    set:
+      group: vmss v-ms
+  - where:
+      group: vm virtual-machine-scale-set-vm-run-command
+    set:
+      group: vmss vm-run
+  - where:
+      group: ^vm virtual-machine$
+    set:
+      group: vm
 ```
 
 
